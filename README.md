@@ -101,7 +101,7 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 - [x] Configurar `VITE_CONTACT_EMAIL` localmente no `.env.local` (arquivo ignorado pelo Git).
 - [ ] Configurar `VITE_CONTACT_EMAIL` no ambiente de produção antes do deploy (não há endpoint de contato na API).
 - [x] Mostrar os avatares públicos dos perfis GitHub na página Integrantes.
-- [ ] Testar a API pública em aba anônima.
+- [x] Confirmar os GETs públicos de unidades, serviços e horários disponíveis (HTTP 200).
 - [ ] Publicar na Vercel.
 - [ ] Gravar e publicar vídeo de até 3 minutos no YouTube; todos os integrantes devem participar da gravação.
 - [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total.
