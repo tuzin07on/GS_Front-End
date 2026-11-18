@@ -20,7 +20,7 @@ O Fila Zero ajuda o cidadão a encontrar unidades de atendimento público, consu
 - Repositório Front-End: https://github.com/tuzin07on/GS_Front-End
 - Repositório/API Java: https://github.com/josue-menezes/fila-zero-api
 - API publicada: https://fila-zero-api.onrender.com
-- Aplicação na Vercel: pendente de publicação
+- Aplicação publicada na Vercel: https://gs-fila-zero-front.vercel.app
 - Vídeo de demonstração no YouTube (até 3 minutos): pendente de gravação pela equipe
 - Contato: formulário na rota `/contato`; o destino é configurado por `VITE_CONTACT_EMAIL`.
 
@@ -56,10 +56,10 @@ Crie `.env.local`:
 
 ```env
 VITE_API_URL=https://fila-zero-api.onrender.com
-VITE_CONTACT_EMAIL=
+VITE_CONTACT_EMAIL=seu-email@exemplo.com
 ```
 
-A URL da API é `https://fila-zero-api.onrender.com` (projeto Java no Render). Defina `VITE_CONTACT_EMAIL` com a caixa de entrada da equipe para o formulário preparar um e-mail; o navegador abre o aplicativo de e-mail e a pessoa confirma o envio.
+A variável `VITE_API_URL` aponta para a API Java publicada no Render. Configure `VITE_CONTACT_EMAIL` com a caixa que receberá as mensagens; o formulário abre o aplicativo de e-mail da pessoa para confirmar o envio. Variáveis `VITE_*` são incluídas no código do front-end, então não coloque segredos nelas.
 
 ## Execução
 
@@ -68,7 +68,7 @@ npm install
 npm run dev
 ```
 
-Build:
+Build de produção:
 
 ```bash
 npm run build
@@ -94,18 +94,16 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 
 ## Checklist da entrega
 
-- [ ] Preencher URL da API no `.env.local`/Vercel.
+- [x] Configurar `VITE_API_URL` e `VITE_CONTACT_EMAIL` no projeto Vercel.
 - [x] Executar `npm run build` sem erros.
-- [x] Configurar a URL pública da API em `.env.local` e `.env.example`.
 - [x] Preencher GitHub e LinkedIn dos integrantes em `src/pages/Integrantes.tsx`.
-- [x] Configurar `VITE_CONTACT_EMAIL` localmente no `.env.local` (arquivo ignorado pelo Git).
-- [ ] Configurar `VITE_CONTACT_EMAIL` no ambiente de produção antes do deploy (não há endpoint de contato na API).
 - [x] Mostrar os avatares públicos dos perfis GitHub na página Integrantes.
 - [x] Confirmar os GETs públicos de unidades, serviços e horários disponíveis (HTTP 200).
-- [ ] Publicar na Vercel.
+- [x] Publicar o site na Vercel e confirmar resposta HTTP 200.
+- [x] Gerar o ZIP sem `node_modules` e com menos de 50 MB.
+- [ ] Validar visualmente nos tamanhos 390×844, 768×1024 e 1440×900.
 - [ ] Gravar e publicar vídeo de até 3 minutos no YouTube; todos os integrantes devem participar da gravação.
 - [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total.
-- [ ] Gerar ZIP sem `node_modules` e com até 50 MB.
 
 ## Integrantes
 
@@ -117,4 +115,3 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 ## Observação
 
 O projeto foi estruturado conforme `GS_FilaZero_Especificacao.pdf` e os critérios de Front-End Design Engineering da Global Solution 2026/2. Não foram adicionados endpoints fora do contrato da API.
-
