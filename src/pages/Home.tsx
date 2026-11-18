@@ -23,8 +23,8 @@ export function Home() {
                 ['01', 'Escolha o serviço'],
                 ['02', 'Compare unidades'],
                 ['03', 'Agende seu horário'],
-              ].map(([number, text]) => (
-                <div key={number} className="rounded-2xl border border-slate-200 bg-white p-4">
+              ].map(([number, text], i) => (
+                <div key={number} className="animate-subir rounded-2xl border border-slate-200 bg-white p-4" style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
                   <span className="grid h-8 w-8 place-items-center rounded-lg bg-lima-soft text-sm font-black text-navy">{number}</span>
                   <p className="mt-2 font-bold">{text}</p>
                 </div>
@@ -32,7 +32,7 @@ export function Home() {
             </div>
           </div>
           <div className="relative pt-10 lg:pt-0">
-            <LogoMarca comBrilho className="absolute -top-2 right-2 z-10 h-24 w-24 drop-shadow-xl sm:-top-10 sm:right-6 sm:h-32 sm:w-32" />
+            <LogoMarca comBrilho animado className="absolute -top-2 right-2 z-10 h-24 w-24 drop-shadow-xl sm:-top-10 sm:right-6 sm:h-32 sm:w-32" />
             <div className="rounded-[2rem] bg-navy p-7 text-white shadow-soft sm:p-10">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-lima">Como funciona</p>
               <div className="mt-8 grid gap-5">
@@ -40,8 +40,8 @@ export function Home() {
                   ['01', 'Escolha o serviço', 'Encontre o atendimento que você precisa.'],
                   ['02', 'Veja as unidades', 'Consulte endereço, horário e capacidade.'],
                   ['03', 'Garanta seu horário', 'Faça o agendamento e acompanhe depois.'],
-                ].map(([n, title, desc]) => (
-                  <div key={n} className="flex gap-4 rounded-2xl bg-white/10 p-4">
+                ].map(([n, title, desc], i) => (
+                  <div key={n} className="animate-subir flex gap-4 rounded-2xl bg-white/10 p-4" style={{ animationDelay: `${0.3 + i * 0.12}s` }}>
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-lima font-black text-navy">{n}</span>
                     <div><p className="font-black">{title}</p><p className="mt-1 text-sm leading-5 text-white/80">{desc}</p></div>
                   </div>

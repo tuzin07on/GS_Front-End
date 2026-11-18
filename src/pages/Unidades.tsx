@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { CardUnidade } from '../components/CardUnidade'
 import { EstadoVazio } from '../components/EstadoVazio'
-import { Loading } from '../components/Loading'
+import { EsqueletoCards } from '../components/EsqueletoCards'
 import { MensagemErro } from '../components/MensagemErro'
 import { listarUnidades } from '../services/unidadeService'
 import type { Unidade } from '../types/api'
@@ -54,7 +54,7 @@ export function Unidades() {
           </div>
         )}
         <div className="mt-10">
-          {loading && <Loading label="Buscando unidades..." />}
+          {loading && <EsqueletoCards label="Buscando unidades..." />}
           {!loading && error && <MensagemErro message={error} onRetry={() => void load()} />}
           {!loading && !error && unidades.length === 0 && <EstadoVazio title="Nenhuma unidade encontrada" message="Não há unidades cadastradas para consulta neste momento." />}
           {!loading && !error && unidades.length > 0 && filtradas.length === 0 && (
@@ -62,7 +62,11 @@ export function Unidades() {
           )}
           {!loading && !error && filtradas.length > 0 && (
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filtradas.map((unidade) => <CardUnidade key={unidade.cdUnidade} unidade={unidade} />)}
+              {filtradas.map((unidade, i) => (
+                <div key={unidade.cdUnidade} className="animate-subir" style={{ animationDelay: `${Math.min(i, 8) * 0.07}s` }}>
+                  <CardUnidade unidade={unidade} />
+                </div>
+              ))}
             </div>
           )}
         </div>

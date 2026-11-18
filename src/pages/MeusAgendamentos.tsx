@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Botao } from '../components/Botao'
 import { EstadoVazio } from '../components/EstadoVazio'
-import { Loading } from '../components/Loading'
+import { EsqueletoCards } from '../components/EsqueletoCards'
 import { MensagemErro } from '../components/MensagemErro'
 import { StatusBadge } from '../components/StatusBadge'
 import { atualizarAgendamento } from '../services/agendamentoService'
@@ -85,16 +85,16 @@ export function MeusAgendamentos() {
         <div className="mt-8">
           {error && <div className="mb-5"><MensagemErro message={error} /></div>}
           {message && <div className="mb-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 font-bold text-emerald-800" role="status">{message}</div>}
-          {loading && <Loading label="Buscando seus agendamentos..." />}
+          {loading && <EsqueletoCards label="Buscando seus agendamentos..." quantidade={2} colunas={1} />}
           {!loading && !error && items.length === 0 && <EstadoVazio title="Nenhum agendamento encontrado" message="Você ainda não possui agendamentos cadastrados para este código." />}
           {!loading && !error && items.length > 0 && (
             <div className="grid gap-5">
-              {items.map((item) => {
+              {items.map((item, indice) => {
                 const statusAllowsCancel = item.status === 'AGENDADO' || item.status === 'CONFIRMADO'
                 const cancellationDeadline = Date.parse(`${item.dtAgendamento}-03:00`) - 2 * 60 * 60 * 1000
                 const canCancel = statusAllowsCancel && cancellationDeadline >= Date.now()
                 return (
-                  <article key={item.cdAgendamento} className="card p-6">
+                  <article key={item.cdAgendamento} className="card animate-subir p-6" style={{ animationDelay: `${Math.min(indice, 8) * 0.07}s` }}>
                     <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                       <div>
                         <p className="text-sm font-bold text-slate-500">Agendamento #{item.cdAgendamento}</p>

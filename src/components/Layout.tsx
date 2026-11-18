@@ -30,7 +30,9 @@ export function Layout() {
         Pular para o conteúdo
       </a>
       <Header />
-      <main id="conteudo" tabIndex={-1} className="outline-none"><Outlet /></main>
+      <main id="conteudo" tabIndex={-1} className="outline-none">
+        <div key={pathname} className="animate-pagina"><Outlet /></div>
+      </main>
       <Footer />
     </div>
   )

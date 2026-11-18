@@ -241,7 +241,7 @@ export function Agendar() {
             )}
           </div>
           {servicoSelecionado && horarioSelecionado && (
-            <div className="mt-8 rounded-2xl bg-navy p-5 text-white" aria-live="polite">
+            <div key={form.dtAgendamento} className="mt-8 animate-subir rounded-2xl bg-navy p-5 text-white" aria-live="polite">
               <p className="text-xs font-black uppercase tracking-widest text-lima">Resumo do agendamento</p>
               <p className="mt-2 text-lg font-black">{servicoSelecionado.nmServico}</p>
               <p className="mt-1 text-sm text-white/90">{unidade?.nmUnidade} · {dataFormatada} às {horarioSelecionado.horario}</p>
