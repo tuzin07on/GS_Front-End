@@ -84,7 +84,7 @@ export function MeusAgendamentos() {
                       <div><p className="text-xs font-bold uppercase text-slate-500">Unidade</p><p className="mt-1 font-bold">{item.unidade.nmUnidade}</p></div>
                       <div><p className="text-xs font-bold uppercase text-slate-500">Documentos</p><p className="mt-1 text-sm text-slate-600">{item.servico.dsDocumentos}</p></div>
                     </div>
-                    {typeof item.esperaMin === 'number' && <p className="mt-4 text-sm font-bold text-forest">Espera estimada: {item.esperaMin} min</p>}
+                    {typeof item.esperaMin === 'number' && <p className="mt-4 text-sm font-bold text-forest">Tempo de espera registrado: {item.esperaMin} min</p>}
                     {statusAllowsCancel && !canCancel && <p className="mt-4 text-sm text-slate-600">O prazo para cancelar este horário já terminou. O cancelamento precisa ser feito até 2 horas antes.</p>}
                     {canCancel && (
                       <div className="mt-6 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-end">
