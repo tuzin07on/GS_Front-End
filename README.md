@@ -92,6 +92,12 @@ Operações implementadas:
 
 A identificação do cidadão é mantida localmente pelo código retornado pela API. Não há login real, conforme o escopo.
 
+## Documentação complementar
+
+- [Configuração e deploy na Vercel](docs/DEPLOY.md)
+- [Registro de validação e pendências](docs/VALIDACAO.md)
+- [Fluxo de contribuição por etapas](docs/CONTRIBUICAO.md)
+
 ## Checklist da entrega
 
 - [x] Configurar `VITE_API_URL` e `VITE_CONTACT_EMAIL` no projeto Vercel.
@@ -103,7 +109,7 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 - [x] Gerar o ZIP sem `node_modules` e com menos de 50 MB.
 - [ ] Validar visualmente nos tamanhos 390×844, 768×1024 e 1440×900.
 - [ ] Gravar e publicar vídeo de até 3 minutos no YouTube; todos os integrantes devem participar da gravação.
-- [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total.
+- [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total; esta sequência registra as cinco etapas de Arthur e o histórico do restante da equipe ainda precisa ser conferido.
 
 ## Integrantes
 
