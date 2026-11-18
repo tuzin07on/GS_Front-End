@@ -134,6 +134,7 @@ export function Agendar() {
     setSending(true)
     try {
       let cidadaoId = Number(form.cidadaoId)
+      const cadastroNovo = newCitizen
       if (newCitizen) {
         const citizen = await criarCidadao({
           nmCidadao: form.nome.trim(),
@@ -154,8 +155,8 @@ export function Agendar() {
         cdServico: Number(form.cdServico),
         dtAgendamento: form.dtAgendamento,
       })
-      setSuccess('Pronto! Seu horário está garantido.')
-      setTimeout(() => navigate('/meus-agendamentos'), 900)
+      setSuccess(cadastroNovo ? `Pronto! Seu horário está garantido. Seu código de cidadão é ${cidadaoId}.` : 'Pronto! Seu horário está garantido.')
+      setTimeout(() => navigate('/meus-agendamentos', { state: { agendado: true, novoCodigo: cadastroNovo ? cidadaoId : null } }), 1500)
     } catch (err) { setError(err instanceof Error ? err.message : 'Não foi possível criar o agendamento.') }
     finally { setSending(false) }
   }

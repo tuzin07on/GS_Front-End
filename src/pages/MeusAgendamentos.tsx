@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Botao } from '../components/Botao'
 import { EstadoVazio } from '../components/EstadoVazio'
 import { Loading } from '../components/Loading'
@@ -7,10 +7,14 @@ import { MensagemErro } from '../components/MensagemErro'
 import { StatusBadge } from '../components/StatusBadge'
 import { atualizarAgendamento } from '../services/agendamentoService'
 import { listarAgendamentosCidadao } from '../services/cidadaoService'
-import { getCidadaoId, setCidadaoId } from '../lib/storage'
+import { clearCidadaoId, getCidadaoId, setCidadaoId } from '../lib/storage'
 import type { Agendamento } from '../types/api'
 
+interface NavegacaoState { agendado?: boolean; novoCodigo?: number | null }
+
 export function MeusAgendamentos() {
+  const navState = (useLocation().state ?? {}) as NavegacaoState
+  const [salvo, setSalvo] = useState(getCidadaoId())
   const [id, setId] = useState(getCidadaoId()?.toString() ?? '')
   const [items, setItems] = useState<Agendamento[]>([])
   const [loading, setLoading] = useState(false)
@@ -23,7 +27,7 @@ export function MeusAgendamentos() {
     setLoading(true); setError('')
     if (!options.preserveMessage) setMessage('')
     if (!options.preserveResults) setItems([])
-    try { setItems(await listarAgendamentosCidadao(citizenId)); setCidadaoId(citizenId) }
+    try { setItems(await listarAgendamentosCidadao(citizenId)); setCidadaoId(citizenId); setSalvo(citizenId) }
     catch (err) { setError(err instanceof Error ? err.message : 'Não foi possível consultar os agendamentos.') }
     finally { setLoading(false) }
   }
@@ -32,6 +36,10 @@ export function MeusAgendamentos() {
     const current = getCidadaoId()
     if (current) void load(current)
   }, [])
+
+  const trocarCodigo = () => {
+    clearCidadaoId(); setSalvo(null); setId(''); setItems([]); setError(''); setMessage('')
+  }
 
   const cancel = async (item: Agendamento) => {
     if (!window.confirm('Deseja cancelar este agendamento?')) return
@@ -51,12 +59,27 @@ export function MeusAgendamentos() {
         <h1 className="title">Meus agendamentos</h1>
         <p className="body-copy mt-4">Consulte seus horários e cancele um agendamento quando estiver dentro do prazo permitido.</p>
 
+        {navState.agendado && (
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-900" role="status">
+            <p className="font-black">Agendamento criado com sucesso!</p>
+            {navState.novoCodigo && (
+              <p className="mt-1 text-sm">Seu código de cidadão é <strong className="text-lg">{navState.novoCodigo}</strong>. Anote: é com ele que você consulta e cancela seus horários em qualquer aparelho.</p>
+            )}
+          </div>
+        )}
+
         <div className="card mt-8 p-6">
           <label className="label" htmlFor="citizen-code">Seu código de cidadão</label>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <input id="citizen-code" type="number" min="1" className="field mt-0" value={id} onChange={(e) => setId(e.target.value)} placeholder="Ex.: 3" />
             <Botao type="button" onClick={() => void load()} disabled={loading}>{loading ? 'Consultando...' : 'Consultar'}</Botao>
           </div>
+          {salvo && (
+            <p className="mt-3 text-sm text-slate-500">
+              Código salvo neste aparelho: <strong>#{salvo}</strong>.{' '}
+              <button type="button" className="font-black text-forest underline" onClick={trocarCodigo}>Usar outro código</button>
+            </p>
+          )}
         </div>
 
         <div className="mt-8">
