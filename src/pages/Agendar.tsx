@@ -242,7 +242,7 @@ export function Agendar() {
           </div>
           {servicoSelecionado && horarioSelecionado && (
             <div className="mt-8 rounded-2xl bg-navy p-5 text-white" aria-live="polite">
-              <p className="text-xs font-black uppercase tracking-widest text-white/70">Resumo do agendamento</p>
+              <p className="text-xs font-black uppercase tracking-widest text-lima">Resumo do agendamento</p>
               <p className="mt-2 text-lg font-black">{servicoSelecionado.nmServico}</p>
               <p className="mt-1 text-sm text-white/90">{unidade?.nmUnidade} · {dataFormatada} às {horarioSelecionado.horario}</p>
               <p className="mt-3 text-xs text-white/70">Chegue com 10 minutos de antecedência. Cancelamentos até 2 horas antes.</p>
@@ -250,7 +250,7 @@ export function Agendar() {
           )}
           <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
             <Link to={`/unidades/${unidadeId}`} className="btn-secondary">Cancelar</Link>
-            <Botao type="submit" disabled={sending}>{sending ? 'Enviando...' : 'Confirmar agendamento'}</Botao>
+            <Botao type="submit" variant="destaque" disabled={sending}>{sending ? 'Enviando...' : 'Confirmar agendamento'}</Botao>
           </div>
         </form>
       </div>

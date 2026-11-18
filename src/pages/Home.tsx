@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { LogoMarca } from '../components/Logo'
 
 export function Home() {
   return (
@@ -7,14 +8,14 @@ export function Home() {
         <div className="page-shell grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
           <div>
             <p className="eyebrow">CitizenTech · atendimento público</p>
-            <h1 className="title max-w-4xl text-5xl sm:text-6xl">
-              Menos fila. Mais tempo para você.
+            <h1 className="title relative z-0 max-w-4xl text-5xl sm:text-6xl">
+              Menos fila. <span className="relative whitespace-nowrap">Mais tempo<span className="absolute inset-x-0 bottom-1 -z-10 h-3 rounded-full bg-lima/70 sm:h-4" aria-hidden="true" /></span> para você.
             </h1>
             <p className="body-copy mt-6 max-w-2xl">
               O Fila Zero ajuda o cidadão a encontrar uma unidade, consultar o atendimento e marcar um horário com mais previsibilidade.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/unidades" className="btn-primary">Encontrar uma unidade</Link>
+              <Link to="/unidades" className="btn-destaque">Encontrar uma unidade</Link>
               <Link to="/sobre" className="btn-secondary">Entender a solução</Link>
             </div>
             <div className="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
@@ -24,13 +25,14 @@ export function Home() {
                 ['03', 'Agende seu horário'],
               ].map(([number, text]) => (
                 <div key={number} className="rounded-2xl border border-slate-200 bg-white p-4">
-                  <span className="text-sm font-black text-navy">{number}</span>
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-lima-soft text-sm font-black text-navy">{number}</span>
                   <p className="mt-2 font-bold">{text}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative">
+          <div className="relative pt-10 lg:pt-0">
+            <LogoMarca comBrilho className="absolute -top-2 right-2 z-10 h-24 w-24 drop-shadow-xl sm:-top-10 sm:right-6 sm:h-32 sm:w-32" />
             <div className="rounded-[2rem] bg-navy p-7 text-white shadow-soft sm:p-10">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-lima">Como funciona</p>
               <div className="mt-8 grid gap-5">
@@ -40,7 +42,7 @@ export function Home() {
                   ['03', 'Garanta seu horário', 'Faça o agendamento e acompanhe depois.'],
                 ].map(([n, title, desc]) => (
                   <div key={n} className="flex gap-4 rounded-2xl bg-white/10 p-4">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white font-black text-navy">{n}</span>
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-lima font-black text-navy">{n}</span>
                     <div><p className="font-black">{title}</p><p className="mt-1 text-sm leading-5 text-white/80">{desc}</p></div>
                   </div>
                 ))}

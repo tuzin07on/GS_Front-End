@@ -29,7 +29,7 @@ button, input, select, textarea { font: inherit; }
   .page-shell { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
   .section { @apply py-14 sm:py-20 lg:py-24; }
   .card { @apply rounded-3xl border border-slate-200 bg-white shadow-soft; }
-  .eyebrow { @apply mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-navy before:h-2.5 before:w-2.5 before:shrink-0 before:rounded-full before:bg-lima before:content-['']; }
+  .eyebrow { @apply mb-3 flex items-start gap-2 before:mt-[0.3em] text-sm font-bold uppercase tracking-[0.16em] text-navy before:h-2.5 before:w-2.5 before:shrink-0 before:rounded-full before:bg-lima before:content-['']; }
   .title { @apply text-3xl font-black tracking-tight text-ink sm:text-4xl lg:text-5xl; }
   .body-copy { @apply text-base leading-7 text-slate-600 sm:text-lg; }
   .btn-primary { @apply inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 font-bold text-white transition hover:bg-navy-dark disabled:cursor-not-allowed disabled:opacity-50; }
