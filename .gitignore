@@ -5,3 +5,8 @@ dist
 *.local
 .DS_Store
 
+# Logs de execução
+*.log
+
+# Configuração local da CLI da Vercel
+.vercel
