@@ -101,6 +101,13 @@ export function Agendar() {
     return () => { active = false }
   }, [unidadeId, form.dataAgendamento, refreshHorarios])
 
+  const servicoSelecionado = servicos.find((s) => String(s.cdServico) === form.cdServico)
+  const horarioSelecionado = horarios.find((h) => h.dataHora === form.dtAgendamento)
+  const dataExtenso = form.dataAgendamento
+    ? new Date(`${form.dataAgendamento}T00:00:00`).toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' })
+    : ''
+  const dataFormatada = dataExtenso.charAt(0).toUpperCase() + dataExtenso.slice(1)
+
   const set = (key: keyof FormState, value: string) => setForm((current) => ({ ...current, [key]: value }))
 
   const validate = () => {
@@ -177,6 +184,12 @@ export function Agendar() {
                 <option value="">Selecione o serviço</option>
                 {servicos.map((s) => <option key={s.cdServico} value={s.cdServico}>{s.nmServico}</option>)}
               </select>
+              {servicoSelecionado && (
+                <div className="mt-3 rounded-2xl border border-mint bg-mint/40 p-4 text-sm" aria-live="polite">
+                  <p className="font-black text-forest">Duração média: {servicoSelecionado.nrDuracaoMin} min</p>
+                  <p className="mt-1 text-slate-700"><span className="font-bold">Leve no dia:</span> {servicoSelecionado.dsDocumentos}</p>
+                </div>
+              )}
               {!loading && servicos.length === 0 && <p className="mt-2 text-sm text-slate-600" role="status">Esta unidade não oferece serviços para agendamento neste momento.</p>}
             </div>
             <div className="sm:col-span-2">
@@ -226,6 +239,14 @@ export function Agendar() {
               </>
             )}
           </div>
+          {servicoSelecionado && horarioSelecionado && (
+            <div className="mt-8 rounded-2xl bg-forest p-5 text-white" aria-live="polite">
+              <p className="text-xs font-black uppercase tracking-widest text-white/70">Resumo do agendamento</p>
+              <p className="mt-2 text-lg font-black">{servicoSelecionado.nmServico}</p>
+              <p className="mt-1 text-sm text-white/90">{unidade?.nmUnidade} · {dataFormatada} às {horarioSelecionado.horario}</p>
+              <p className="mt-3 text-xs text-white/70">Chegue com 10 minutos de antecedência. Cancelamentos até 2 horas antes.</p>
+            </div>
+          )}
           <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
             <Link to={`/unidades/${unidadeId}`} className="btn-secondary">Cancelar</Link>
             <Botao type="submit" disabled={sending}>{sending ? 'Enviando...' : 'Confirmar agendamento'}</Botao>
