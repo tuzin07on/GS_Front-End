@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
+import { Logo } from './Logo'
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-slate-200 bg-white">
       <div className="page-shell grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="text-xl font-black">Fila Zero</p>
-          <p className="mt-2 max-w-xs text-sm leading-6 text-slate-500">
+          <Logo />
+          <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">
             Atendimento público com mais previsibilidade, menos espera e mais tempo para o cidadão.
           </p>
         </div>

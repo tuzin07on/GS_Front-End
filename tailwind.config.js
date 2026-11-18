@@ -4,17 +4,19 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter Variable", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Nunito Variable", "Nunito", "ui-rounded", "system-ui", "sans-serif"],
       },
       colors: {
-        ink: "#10221B",
-        forest: "#165C43",
-        leaf: "#2F8F68",
-        mint: "#EAF7F0",
-        cream: "#F7F8F4",
+        // Identidade visual Fila Zero: azul-marinho (confiança, serviço público)
+        // + verde-limão (o "check" de atendimento garantido)
+        ink: "#0E2338",
+        navy: { DEFAULT: "#143F5F", dark: "#0E2F48" },
+        lima: { DEFAULT: "#B5E848", soft: "#F1F9DE" },
+        paper: "#F4F6F8",
       },
       boxShadow: {
-        soft: "0 18px 50px rgba(16, 34, 27, 0.08)",
+        soft: "0 18px 50px rgba(14, 35, 56, 0.08)",
       },
     },
   },

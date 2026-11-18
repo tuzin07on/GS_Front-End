@@ -43,7 +43,7 @@ export function Integrantes() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {integrantes.map((item) => (
             <article key={item.rm} className="card flex min-w-0 gap-5 p-6">
-              <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl bg-mint text-xl font-black text-forest">
+              <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl bg-lima-soft text-xl font-black text-navy">
                 <span className="col-start-1 row-start-1" aria-hidden="true">
                   {item.nome.split(' ').map((parte) => parte[0]).slice(0, 2).join('')}
                 </span>
@@ -60,8 +60,8 @@ export function Integrantes() {
                 <h2 className="text-xl font-black">{item.nome}</h2>
                 <p className="mt-1 text-sm text-slate-500">RM {item.rm} · {item.turma}</p>
                 <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-bold">
-                  <a className="text-forest underline" href={item.github} target="_blank" rel="noreferrer" aria-label={`GitHub de ${item.nome}`}>GitHub</a>
-                  <a className="text-forest underline" href={item.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn de ${item.nome}`}>LinkedIn</a>
+                  <a className="text-navy underline" href={item.github} target="_blank" rel="noreferrer" aria-label={`GitHub de ${item.nome}`}>GitHub</a>
+                  <a className="text-navy underline" href={item.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn de ${item.nome}`}>LinkedIn</a>
                 </div>
               </div>
             </article>

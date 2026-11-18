@@ -18,19 +18,19 @@ export function Sobre() {
             ['ODS 11', 'Cidades e comunidades sustentáveis', 'Serviços públicos mais acessíveis e eficientes.'],
           ].map(([ods, title, text]) => (
             <article key={ods} className="card p-7">
-              <span className="text-sm font-black text-forest">{ods}</span>
+              <span className="text-sm font-black text-navy">{ods}</span>
               <h2 className="mt-3 text-xl font-black">{title}</h2>
               <p className="mt-3 leading-7 text-slate-600">{text}</p>
             </article>
           ))}
         </div>
-        <div className="mt-12 rounded-3xl bg-forest p-8 text-white sm:p-10">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-100">Escopo</p>
+        <div className="mt-12 rounded-3xl bg-navy p-8 text-white sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-lima">Escopo</p>
           <h2 className="mt-3 text-3xl font-black">Agendamento e acompanhamento em unidades de atendimento público.</h2>
-          <p className="mt-4 max-w-3xl leading-7 text-emerald-50">
+          <p className="mt-4 max-w-3xl leading-7 text-white/80">
             O projeto contempla cidadãos, unidades, serviços e agendamentos. Login real, pagamento, chat com atendente, notificações reais e perfil administrador estão fora do escopo definido.
           </p>
-          <Link to="/unidades" className="mt-7 inline-flex rounded-xl bg-white px-5 py-3 font-black text-forest">Começar agora</Link>
+          <Link to="/unidades" className="mt-7 inline-flex rounded-xl bg-white px-5 py-3 font-black text-navy">Começar agora</Link>
         </div>
       </div>
     </section>

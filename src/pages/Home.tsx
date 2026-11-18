@@ -24,15 +24,15 @@ export function Home() {
                 ['03', 'Agende seu horário'],
               ].map(([number, text]) => (
                 <div key={number} className="rounded-2xl border border-slate-200 bg-white p-4">
-                  <span className="text-sm font-black text-forest">{number}</span>
+                  <span className="text-sm font-black text-navy">{number}</span>
                   <p className="mt-2 font-bold">{text}</p>
                 </div>
               ))}
             </div>
           </div>
           <div className="relative">
-            <div className="rounded-[2rem] bg-forest p-7 text-white shadow-soft sm:p-10">
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-100">Como funciona</p>
+            <div className="rounded-[2rem] bg-navy p-7 text-white shadow-soft sm:p-10">
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-lima">Como funciona</p>
               <div className="mt-8 grid gap-5">
                 {[
                   ['01', 'Escolha o serviço', 'Encontre o atendimento que você precisa.'],
@@ -40,8 +40,8 @@ export function Home() {
                   ['03', 'Garanta seu horário', 'Faça o agendamento e acompanhe depois.'],
                 ].map(([n, title, desc]) => (
                   <div key={n} className="flex gap-4 rounded-2xl bg-white/10 p-4">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white font-black text-forest">{n}</span>
-                    <div><p className="font-black">{title}</p><p className="mt-1 text-sm leading-5 text-emerald-50">{desc}</p></div>
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white font-black text-navy">{n}</span>
+                    <div><p className="font-black">{title}</p><p className="mt-1 text-sm leading-5 text-white/80">{desc}</p></div>
                   </div>
                 ))}
               </div>

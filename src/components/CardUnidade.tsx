@@ -5,7 +5,7 @@ export function CardUnidade({ unidade }: { unidade: Unidade }) {
   return (
     <article className="card flex h-full flex-col p-6">
       <div className="flex items-start justify-between gap-4">
-        <span className="rounded-full bg-mint px-3 py-1 text-xs font-black text-forest">Unidade pública</span>
+        <span className="rounded-full bg-lima-soft px-3 py-1 text-xs font-black text-navy">Unidade pública</span>
         <span className="text-sm font-bold text-slate-500">{unidade.guiches} guichês</span>
       </div>
       <h2 className="mt-5 text-xl font-black">{unidade.nmUnidade}</h2>

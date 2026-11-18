@@ -36,10 +36,10 @@ export function UnidadeDetalhe() {
   return (
     <section className="section">
       <div className="page-shell">
-        <Link to="/unidades" className="text-sm font-bold text-forest">← Voltar para unidades</Link>
+        <Link to="/unidades" className="text-sm font-bold text-navy">← Voltar para unidades</Link>
         <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_0.8fr]">
           <div className="card p-7 sm:p-9">
-            <span className="rounded-full bg-mint px-3 py-1 text-xs font-black text-forest">Unidade</span>
+            <span className="rounded-full bg-lima-soft px-3 py-1 text-xs font-black text-navy">Unidade</span>
             <h1 className="mt-5 text-3xl font-black sm:text-4xl">{unidade.nmUnidade}</h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{unidade.dsEndereco}, {unidade.nmBairro}, {unidade.nmCidade}</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">

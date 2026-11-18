@@ -38,7 +38,7 @@ export function Contato() {
         </div>
         <form onSubmit={submit} className="card p-6 sm:p-8" noValidate>
           {configError && <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-bold text-amber-900" role="alert">{configError}</div>}
-          {mailtoUrl && <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900" role="status"><p className="font-bold">Sua mensagem está pronta para envio.</p><p className="mt-1 text-sm">Abra seu aplicativo de e-mail e confirme o envio por lá.</p><a className="mt-3 inline-flex rounded-xl bg-forest px-4 py-2 font-bold text-white" href={mailtoUrl}>Abrir aplicativo de e-mail</a></div>}
+          {mailtoUrl && <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900" role="status"><p className="font-bold">Sua mensagem está pronta para envio.</p><p className="mt-1 text-sm">Abra seu aplicativo de e-mail e confirme o envio por lá.</p><a className="mt-3 inline-flex rounded-xl bg-navy px-4 py-2 font-bold text-white" href={mailtoUrl}>Abrir aplicativo de e-mail</a></div>}
           <div className="grid gap-5">
             {[
               ['nome', 'Nome', 'text', 'Seu nome'],

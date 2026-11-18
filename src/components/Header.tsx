@@ -27,7 +27,7 @@ export function Header() {
               end={to === '/'}
               className={({ isActive }) =>
                 `rounded-lg px-3 py-2 text-sm font-bold transition ${
-                  isActive ? 'bg-mint text-forest' : 'text-slate-600 hover:bg-slate-100 hover:text-ink'
+                  isActive ? 'bg-lima-soft text-navy' : 'text-slate-600 hover:bg-slate-100 hover:text-ink'
                 }`
               }
             >
@@ -56,7 +56,7 @@ export function Header() {
                 to={to}
                 end={to === '/'}
                 onClick={() => setOpen(false)}
-                className={({ isActive }) => `rounded-lg px-3 py-3 font-bold hover:bg-mint ${isActive ? 'bg-mint text-forest' : 'text-slate-700'}`}
+                className={({ isActive }) => `rounded-lg px-3 py-3 font-bold hover:bg-lima-soft ${isActive ? 'bg-lima-soft text-navy' : 'text-slate-700'}`}
               >
                 {label}
               </NavLink>

@@ -167,7 +167,7 @@ export function Agendar() {
   return (
     <section className="section">
       <div className="page-shell max-w-4xl">
-        <Link to={`/unidades/${unidadeId}`} className="text-sm font-bold text-forest">← Voltar para a unidade</Link>
+        <Link to={`/unidades/${unidadeId}`} className="text-sm font-bold text-navy">← Voltar para a unidade</Link>
         <div className="mt-6">
           <p className="eyebrow">Novo agendamento</p>
           <h1 className="title">Agende seu atendimento</h1>
@@ -186,8 +186,8 @@ export function Agendar() {
                 {servicos.map((s) => <option key={s.cdServico} value={s.cdServico}>{s.nmServico}</option>)}
               </select>
               {servicoSelecionado && (
-                <div className="mt-3 rounded-2xl border border-mint bg-mint/40 p-4 text-sm" aria-live="polite">
-                  <p className="font-black text-forest">Duração média: {servicoSelecionado.nrDuracaoMin} min</p>
+                <div className="mt-3 rounded-2xl border border-lima-soft bg-lima-soft/70 p-4 text-sm" aria-live="polite">
+                  <p className="font-black text-navy">Duração média: {servicoSelecionado.nrDuracaoMin} min</p>
                   <p className="mt-1 text-slate-700"><span className="font-bold">Leve no dia:</span> {servicoSelecionado.dsDocumentos}</p>
                 </div>
               )}
@@ -218,7 +218,7 @@ export function Agendar() {
                   <p className="font-black">Identificação do cidadão</p>
                   <p className="mt-1 text-sm text-slate-500">Sem login: use seu código ou faça um cadastro rápido.</p>
                 </div>
-                <button type="button" className="text-sm font-black text-forest underline" onClick={() => setNewCitizen((value) => !value)}>
+                <button type="button" className="text-sm font-black text-navy underline" onClick={() => setNewCitizen((value) => !value)}>
                   {newCitizen ? 'Já tenho um código' : 'Quero me cadastrar'}
                 </button>
               </div>
@@ -241,7 +241,7 @@ export function Agendar() {
             )}
           </div>
           {servicoSelecionado && horarioSelecionado && (
-            <div className="mt-8 rounded-2xl bg-forest p-5 text-white" aria-live="polite">
+            <div className="mt-8 rounded-2xl bg-navy p-5 text-white" aria-live="polite">
               <p className="text-xs font-black uppercase tracking-widest text-white/70">Resumo do agendamento</p>
               <p className="mt-2 text-lg font-black">{servicoSelecionado.nmServico}</p>
               <p className="mt-1 text-sm text-white/90">{unidade?.nmUnidade} · {dataFormatada} às {horarioSelecionado.horario}</p>
