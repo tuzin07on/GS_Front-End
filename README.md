@@ -123,7 +123,7 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 
 - Arthur Cordão — RM 570313 — 1TDSR
 - Guilherme Novaes — RM 570444 — 1TDSR
-- Jeferson Faria — RM 573038 — 1TDSR
+- Jefferson Faria — RM 573038 — 1TDSR
 - Josué Menezes — RM 569220 — 1TDSR
 
 ## Observação
