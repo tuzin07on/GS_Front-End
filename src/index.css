@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #10221B;
+  background: #F7F8F4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, input, select, textarea { font: inherit; }
+:focus-visible { outline: 3px solid rgba(47, 143, 104, .45); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-14 sm:py-20 lg:py-24; }
+  .card { @apply rounded-3xl border border-slate-200 bg-white shadow-soft; }
+  .eyebrow { @apply mb-3 text-sm font-bold uppercase tracking-[0.16em] text-forest; }
+  .title { @apply text-3xl font-black tracking-tight text-ink sm:text-4xl lg:text-5xl; }
+  .body-copy { @apply text-base leading-7 text-slate-600 sm:text-lg; }
+  .btn-primary { @apply inline-flex items-center justify-center rounded-xl bg-forest px-5 py-3 font-bold text-white transition hover:bg-[#0F4B36] disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-secondary { @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-ink transition hover:border-forest hover:text-forest; }
+  .field { @apply mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-ink outline-none transition focus:border-forest focus:ring-4 focus:ring-forest/10; }
+  .label { @apply text-sm font-bold text-slate-700; }
+}
+
