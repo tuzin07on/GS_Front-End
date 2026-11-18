@@ -1,9 +1,9 @@
-/** Mantem so os digitos de um texto (ex.: "123.456" -> "123456"). */
+/** Mantém só os dígitos de um texto (ex.: "123.456" -> "123456"). */
 export function somenteDigitos(valor: string) {
   return valor.replace(/\D/g, '')
 }
 
-/** Formata CPF enquanto o cidadao digita: 000.000.000-00 */
+/** Formata CPF enquanto o cidadão digita: 000.000.000-00 */
 export function mascaraCpf(valor: string) {
   const d = somenteDigitos(valor).slice(0, 11)
   return d
