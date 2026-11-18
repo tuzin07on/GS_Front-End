@@ -24,6 +24,7 @@ export function Header() {
             <NavLink
               key={to}
               to={to}
+              end={to === '/'}
               className={({ isActive }) =>
                 `rounded-lg px-3 py-2 text-sm font-bold transition ${
                   isActive ? 'bg-mint text-forest' : 'text-slate-600 hover:bg-slate-100 hover:text-ink'
@@ -43,16 +44,22 @@ export function Header() {
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((value) => !value)}
         >
-          Menu
+          {open ? 'Fechar' : 'Menu'}
         </button>
       </div>
       {open && (
         <nav id="mobile-navigation" className="border-t border-slate-200 bg-white px-4 py-3 md:hidden" aria-label="Menu mobile">
           <div className="page-shell grid gap-1">
             {links.concat([['/contato', 'Contato'], ['/integrantes', 'Integrantes'], ['/faq', 'FAQ']]).map(([to, label]) => (
-              <Link key={to} to={to} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 font-bold text-slate-700 hover:bg-mint">
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) => `rounded-lg px-3 py-3 font-bold hover:bg-mint ${isActive ? 'bg-mint text-forest' : 'text-slate-700'}`}
+              >
                 {label}
-              </Link>
+              </NavLink>
             ))}
           </div>
         </nav>

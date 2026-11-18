@@ -92,6 +92,14 @@ Operações implementadas:
 
 A identificação do cidadão é mantida localmente pelo código retornado pela API. Não há login real, conforme o escopo.
 
+## Recursos de usabilidade e acessibilidade
+
+- Busca de unidades por nome, bairro ou cidade (sem diferenciar acentos).
+- Máscaras de CPF e celular no cadastro; a API recebe só os dígitos.
+- Documentos necessários e duração do serviço exibidos antes de confirmar, com resumo do agendamento.
+- Código do cidadão exibido após o primeiro agendamento, com opção de trocar o código salvo no aparelho.
+- Link "Pular para o conteúdo" para quem navega por teclado, título da aba por página e menu mobile indicando a página atual.
+
 ## Documentação complementar
 
 - [Configuração e deploy na Vercel](docs/DEPLOY.md)
@@ -107,7 +115,7 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 - [x] Confirmar os GETs públicos de unidades, serviços e horários disponíveis (HTTP 200).
 - [x] Publicar o site na Vercel e confirmar resposta HTTP 200.
 - [x] Gerar o ZIP sem `node_modules` e com menos de 50 MB.
-- [ ] Validar visualmente nos tamanhos 390×844, 768×1024 e 1440×900.
+- [x] Validar visualmente nos tamanhos 390×844, 768×1024 e 1440×900 (10 rotas, sem rolagem horizontal).
 - [ ] Gravar e publicar vídeo de até 3 minutos no YouTube; todos os integrantes devem participar da gravação.
 - [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total; esta sequência registra as cinco etapas de Arthur e o histórico do restante da equipe ainda precisa ser conferido.
 
