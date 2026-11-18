@@ -15,6 +15,15 @@ O Fila Zero ajuda o cidadão a encontrar unidades de atendimento público, consu
 
 **Axios não é utilizado.**
 
+## Links do projeto
+
+- Repositório Front-End: https://github.com/tuzin07on/GS_Front-End
+- Repositório/API Java: https://github.com/josue-menezes/fila-zero-api
+- API publicada: https://fila-zero-api.onrender.com
+- Aplicação na Vercel: pendente de publicação
+- Vídeo de demonstração no YouTube (até 3 minutos): pendente de gravação pela equipe
+- Contato: formulário na rota `/contato`; o destino é configurado por `VITE_CONTACT_EMAIL`.
+
 ## Estrutura
 
 ```text
@@ -86,14 +95,16 @@ A identificação do cidadão é mantida localmente pelo código retornado pela 
 ## Checklist da entrega
 
 - [ ] Preencher URL da API no `.env.local`/Vercel.
+- [x] Executar `npm run build` sem erros.
 - [x] Configurar a URL pública da API em `.env.local` e `.env.example`.
 - [x] Preencher GitHub e LinkedIn dos integrantes em `src/pages/Integrantes.tsx`.
-- [ ] Configurar `VITE_CONTACT_EMAIL` no `.env.local` e no ambiente de produção (não há endpoint de contato na API).
-- [ ] Adicionar fotos dos integrantes, se desejado/solicitado.
+- [x] Configurar `VITE_CONTACT_EMAIL` localmente no `.env.local` (arquivo ignorado pelo Git).
+- [ ] Configurar `VITE_CONTACT_EMAIL` no ambiente de produção antes do deploy (não há endpoint de contato na API).
+- [x] Mostrar os avatares públicos dos perfis GitHub na página Integrantes.
 - [ ] Testar a API pública em aba anônima.
 - [ ] Publicar na Vercel.
-- [ ] Gravar vídeo de até 3 minutos.
-- [ ] Fazer pelo menos 5 commits por integrante e 15 no total.
+- [ ] Gravar e publicar vídeo de até 3 minutos no YouTube; todos os integrantes devem participar da gravação.
+- [ ] Completar o histórico com pelo menos 5 commits por integrante e 15 no total.
 - [ ] Gerar ZIP sem `node_modules` e com até 50 MB.
 
 ## Integrantes
