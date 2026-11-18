@@ -9,6 +9,7 @@ import { listarServicosDaUnidade } from '../services/servicoService'
 import { criarAgendamento } from '../services/agendamentoService'
 import { criarCidadao } from '../services/cidadaoService'
 import { getCidadaoId, setCidadaoId } from '../lib/storage'
+import { mascaraCpf, mascaraTelefone, somenteDigitos } from '../lib/formatters'
 import type { HorarioDisponivel, Servico, Unidade } from '../types/api'
 
 interface FormState {
@@ -110,7 +111,7 @@ export function Agendar() {
         return 'Preencha os dados obrigatórios do cadastro do cidadão.'
       }
       if (!isValidCpf(form.cpf)) return 'Informe um CPF válido.'
-      if (![10, 11].includes(form.telefone.replace(/\D/g, '').length)) return 'Informe um celular com DDD.'
+      if (![10, 11].includes(somenteDigitos(form.telefone).length)) return 'Informe um celular com DDD.'
       if (new Date(`${form.nascimento}T00:00:00`) >= new Date(new Date().toDateString())) return 'Informe uma data de nascimento no passado.'
       if (form.email && !/^\S+@\S+\.\S+$/.test(form.email.trim())) return 'Informe um e-mail válido ou deixe o campo em branco.'
     }
@@ -129,9 +130,9 @@ export function Agendar() {
       if (newCitizen) {
         const citizen = await criarCidadao({
           nmCidadao: form.nome.trim(),
-          nrCpf: form.cpf.replace(/\D/g, ''),
+          nrCpf: somenteDigitos(form.cpf),
           dsEmail: form.email.trim() || undefined,
-          nrTelefone: form.telefone.replace(/\D/g, ''),
+          nrTelefone: somenteDigitos(form.telefone),
           dtNascimento: form.nascimento,
           nmBairro: form.bairro.trim(),
         })
@@ -217,8 +218,8 @@ export function Agendar() {
             ) : (
               <>
                 <div className="sm:col-span-2"><label className="label" htmlFor="nome">Nome completo *</label><input id="nome" className="field" value={form.nome} onChange={(e) => set('nome', e.target.value)} /></div>
-                <div><label className="label" htmlFor="cpf">CPF *</label><input id="cpf" inputMode="numeric" maxLength={11} minLength={11} className="field" value={form.cpf} onChange={(e) => set('cpf', e.target.value.replace(/\D/g, ''))} autoComplete="off" /></div>
-                <div><label className="label" htmlFor="telefone">Celular *</label><input id="telefone" inputMode="numeric" className="field" value={form.telefone} onChange={(e) => set('telefone', e.target.value.replace(/\D/g, ''))} /></div>
+                <div><label className="label" htmlFor="cpf">CPF *</label><input id="cpf" inputMode="numeric" maxLength={14} placeholder="000.000.000-00" className="field" value={form.cpf} onChange={(e) => set('cpf', mascaraCpf(e.target.value))} autoComplete="off" /></div>
+                <div><label className="label" htmlFor="telefone">Celular *</label><input id="telefone" type="tel" inputMode="numeric" maxLength={15} placeholder="(11) 91234-5678" className="field" value={form.telefone} onChange={(e) => set('telefone', mascaraTelefone(e.target.value))} autoComplete="tel-national" /></div>
                 <div><label className="label" htmlFor="email">E-mail</label><input id="email" type="email" className="field" value={form.email} onChange={(e) => set('email', e.target.value)} /></div>
                 <div><label className="label" htmlFor="nascimento">Data de nascimento *</label><input id="nascimento" type="date" className="field" value={form.nascimento} onChange={(e) => set('nascimento', e.target.value)} /></div>
                 <div className="sm:col-span-2"><label className="label" htmlFor="bairro">Bairro *</label><input id="bairro" className="field" value={form.bairro} onChange={(e) => set('bairro', e.target.value)} /></div>
