@@ -21,7 +21,7 @@ O Fila Zero ajuda o cidadão a encontrar unidades de atendimento público, consu
 - Repositório/API Java: https://github.com/josue-menezes/fila-zero-api
 - API publicada: https://fila-zero-api.onrender.com
 - Aplicação publicada na Vercel: https://gs-fila-zero-front.vercel.app
-- Vídeo de demonstração no YouTube (até 3 minutos): pendente de gravação pela equipe
+- Vídeo de demonstração no YouTube (até 3 minutos): https://youtu.be/5EeyktJ0Lx8
 - Contato: formulário na rota `/contato`; o destino é configurado por `VITE_CONTACT_EMAIL`.
 
 ## Estrutura
